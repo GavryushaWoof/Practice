@@ -1,0 +1,38 @@
+nav {
+    position: relative;
+}
+
+.menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.menu ul li {
+    margin: 0px -7px 0 0;
+    /* display: inline-block; */
+    background-color: #E64A19;
+}
+
+nav a {
+    display: block;
+    padding: 0 10px;
+    color: purple;
+    font-size: 20px;
+    line-height: 60px;
+    text-decoration: none;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+}
+
+.active~.menu {
+    display: block;
+}
+
+.menu:target {
+    display: block;
+}
