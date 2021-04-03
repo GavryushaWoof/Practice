@@ -14,10 +14,10 @@ class SearchBar extends Component {
     }
     this.fetchPokemon = this.fetchPokemon.bind(this);
     this.getShowResults = this.getShowResults.bind(this);
-    this.dontShowResults = this.dontShowResults.bind(this);
+    this.wrapperShowResults = this.wrapperShowResults.bind(this);
   }
 
-  dontShowResults() {
+  wrapperShowResults() {
       if (Object.keys(this.state.profileDetails).length === 0) {
         this.fetchPokemon()
       }
@@ -42,7 +42,7 @@ class SearchBar extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path="/" render={() => <WrapperPokemon showResults={this.state.showResults} dontShowResults={this.dontShowResults} profileDetails={this.state.profileDetails} />} />
+          <Route exact path="/" render={() => <WrapperPokemon showResults={this.state.showResults} wrapperShowResults={this.wrapperShowResults} profileDetails={this.state.profileDetails} />} />
           {Object.keys(this.state.profileDetails).length === 0 ? <Redirect to="/" /> : <Route
             path="/info_pokemon"
             render={() => <InfoPokemon{...this.state.profileDetails.info} />}
