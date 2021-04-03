@@ -2,7 +2,7 @@
 
 ## Install dependencies:
 
-### `npm i`
+### `npm ci`
 
 ## Run the project (require ports 3000 and 5000):
 
