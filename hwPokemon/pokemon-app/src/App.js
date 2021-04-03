@@ -18,18 +18,14 @@ class SearchBar extends Component {
   }
 
   dontShowResults() {
-    if (this.state.showResults) {
-      this.setState({ showResults: false })
-    } else {
       if (Object.keys(this.state.profileDetails).length === 0) {
         this.fetchPokemon()
       }
       this.getShowResults()
-    }
   }
 
   getShowResults() {
-    this.setState({ showResults: true });
+    this.setState({ showResults: !this.state.showResults });
   }
 
   fetchPokemon() {
