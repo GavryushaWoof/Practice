@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import pokemon from '../assets/pokemon3.png';
 
 class infoPokemon extends Component {
+componentWillUnmount(){this.props.getShowResults()} 
     render() {
         return (
             <>
