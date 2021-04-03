@@ -10,7 +10,7 @@ class SearchBar extends Component {
       <main className="main">
         <h1>Who's That Pokémon?</h1>
         { this.props.showResults ? <img src={pokemon2}  alt="pokemon"/> : <img src={pokemon} alt="pokemon"/>}
-        <button onClick={this.props.dontShowResults}>Answer</button>
+        <button onClick={this.props.wrapperShowResults}>Answer</button>
         { this.props.showResults ? <Pokemon {...this.props.profileDetails} /> : null}
       </main>
     );
