@@ -45,7 +45,7 @@ class SearchBar extends Component {
           <Route exact path="/" render={() => <WrapperPokemon showResults={this.state.showResults} wrapperShowResults={this.wrapperShowResults} profileDetails={this.state.profileDetails} />} />
           {Object.keys(this.state.profileDetails).length === 0 ? <Redirect to="/" /> : <Route
             path="/info_pokemon"
-            render={() => <InfoPokemon{...this.state.profileDetails.info} />}
+            render={() => <InfoPokemon{...this.state.profileDetails.info} getShowResults={this.state.getShowResults}/>}
           />}
         </Switch>
       </div>
