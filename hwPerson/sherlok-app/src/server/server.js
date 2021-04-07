@@ -1,0 +1,41 @@
+const express = require('express');
+const app = express();
+const fs = require('fs');
+const path = require('path');
+const info = 'fullInfo.json';
+const img = 'images.json';
+var cors = require('cors');
+
+app.use(cors());
+app.use(express.json());
+
+app.get('/persons', (request, response) => {
+    response.header('Access-Control-Allow-Origin', request.headers.origin);
+    let logs = JSON.parse(fs.readFileSync(path.resolve(__dirname, img), 'utf-8'));
+    response.send(logs.img);
+    return response.end();
+});
+
+app.get('/info', (request, response) => {
+    response.header('Access-Control-Allow-Origin', request.headers.origin);
+    let logs = JSON.parse(fs.readFileSync(path.resolve(__dirname, info), 'utf-8'));
+    response.send(logs.info[0]);
+    return response.end();
+});
+
+app.post('/persone', (request, response) => {
+    response.header('Access-Control-Allow-Origin', request.headers.origin);
+
+    let logs = JSON.parse(fs.readFileSync(path.resolve(__dirname, info), 'utf-8'));
+    if (request.body.name == logs.firstName) {
+        response.send(true);
+    } else {
+        response.send(false);
+    }
+});
+
+app.listen(5000, (err) => {
+    if (err) {
+        return console.log('An error has occurred', err);
+    }
+});
